@@ -8,12 +8,12 @@ sources:
           - name: purchSE_PRICE
             description: product table 
       - name: raw_gz_sales 
+        freshness: 
+          warn_after: {count: 90, period: day} 
+        loaded_at_field: "CAST(date_date AS TIMESTAMP)"  
         tests:
            - unique:
                   column_name : "(orders_id||'-'||pdt_id)"  
-        freshness: 
-          warn_after: {count: 90, period: day} 
-        loaded_at_field: "CAST(cate_date AS TIMESTAMP)"  
                           
         columns : 
            - name: date_date
