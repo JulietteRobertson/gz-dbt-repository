@@ -8,13 +8,20 @@ sources:
           - name: purchSE_PRICE
             description: product table 
       - name: raw_gz_sales 
+        tests:
+           - unique:
+                  column_name : "(orders_id||'-'||pdt_id)"  
+        freshness: 
+          warn_after: {count: 90, period: day} 
+        loaded_at_field: "CAST(cate_date AS TIMESTAMP)"  
+                          
         columns : 
-          - name: date_date
-          - name: orders_id
-          - name: pdt_id
-          - name: revenue
-          - name: quantity
-            description: sales table
+           - name: date_date
+           - name: revenue
+           - name: orders_id
+           - name: pdt_id
+           - name: quantity
+         
       - name: raw_gz_ship 
         columns : 
           - name: orders_id
