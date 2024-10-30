@@ -1,4 +1,6 @@
 SELECT 
+orders_id,
+date_date,
 SUM(revenue) AS revenue,
 SUM(quantity) AS quantity, 
 SUM(purchase_cost) AS purchase_cost,
