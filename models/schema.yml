@@ -140,6 +140,15 @@ models:
           - unique
           - not_null
 
+  - name: Finance_campaigns_month
+    description: Campaign per days
+    columns:
+      - name: datemonth
+        description: Primary key.
+        tests:
+          - unique
+          - not_null
+
 
 
 
